@@ -6,7 +6,7 @@ def test_wrapping_return_value_with_namedtuple():
     """Check if `custom_namedtuple` wraps a function to return a namedtuple with specified name."""
     namedtuple_name = 'TwoFields'
 
-    @returns.custom_namedtuple('field0', 'field1', name=namedtuple_name)
+    @returns.namedtuple('field0', 'field1', name=namedtuple_name)
     def func(arg1, arg2):
         return arg1, arg2
 
@@ -23,13 +23,13 @@ def test_wrapping_return_value_with_namedtuple():
 
 def test_multiple_tuple_lengths():
     """Check if it is possible to return tuples of multiple lengths."""
-    @returns.custom_namedtuple('f1', 'f2', 'f3', name='ThreeArgs')
+    @returns.namedtuple('f1', 'f2', 'f3', name='ThreeArgs')
     def func_3_args(arg1, arg2, arg3):
         return arg1, arg2, arg3
 
     assert func_3_args(1, 2, 3) == (1, 2, 3)
 
-    @returns.custom_namedtuple('f1', 'f2', 'f3', 'f4', 'f5', name='FiveArgs')
+    @returns.namedtuple('f1', 'f2', 'f3', 'f4', 'f5', name='FiveArgs')
     def func_5_args(arg1, arg2, arg3, arg4, arg5):
         return arg1, arg2, arg3, arg4, arg5
 
@@ -38,7 +38,7 @@ def test_multiple_tuple_lengths():
 
 def test_default_namedtuple_name():
     """Check when the name is not given, a fallback one is creared from the function name."""
-    @returns.custom_namedtuple('f0', 'f1')
+    @returns.namedtuple('f0', 'f1')
     def some_function():
         return 1, 33
 

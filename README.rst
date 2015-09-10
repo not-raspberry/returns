@@ -10,7 +10,7 @@ For people too lazy to create namedtuples by themselves.
 
     import returns
 
-    @returns.custom_namedtuple('monkeys', 'snakes')
+    @returns.namedtuple('monkeys', 'snakes')
     def get_monkeys_and_snakes():
         return 'A lot!', 'Even more!'
 
